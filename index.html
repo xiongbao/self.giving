@@ -1,0 +1,372 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta content="感谢您舍己为人慷慨解囊，资助了贫困的我" name="description">
+  <meta content="舍己为人,无私奉献,慷慨解囊" name="keywords">
+  <meta name="theme-color" content="#252628">
+  <title>舍己为人</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" type="image/png" href="assets/images/logo.png">
+  <style>
+    @font-face {
+      font-family: 'MFZhuoYing';
+      src: url('assets/fonts/MFZhuoYing.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    html,body {
+      margin: 0;
+    }
+    html {
+      font-size: 13.3333vw;
+    }
+    body {
+      font-size: 16px;
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url(assets/images/hand-hold.png);
+      background-size: auto 100%;
+      background-position: 50% 100%;
+      background-repeat: no-repeat;
+    }
+
+    a,a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    main {
+      width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {margin-top: 6vh;}
+
+    h1 svg {
+      height: 50px;
+    }
+    h1 span,
+    li span {
+      position: absolute !important;
+      clip: rect(1px 1px 1px 1px);
+      clip: rect(1px, 1px, 1px, 1px);
+      padding:0 !important;
+      border:0 !important;
+      height: 1px !important;
+      width: 1px !important;
+      overflow: hidden;
+    }
+    
+    section {
+      position: relative;
+      display: block;
+      padding: 35% 0 0;
+      background-image: url(assets/images/banner.png);
+      background-size: auto 100%;
+      background-position: 0 50%;
+      background-repeat: no-repeat;
+      user-select: none;
+    }
+    section, li a {
+      border-radius: 6px;
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      background-color: rgba(0,18,165,.05);
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    article {
+      position: absolute;
+      top: 0;
+      right: 2.5%;
+      bottom: 0;
+      font-family: 'MFZhuoYing',sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    article h2 {
+      margin: 0;
+      font-size: .54rem;
+      font-weight: normal;
+    }
+    article p {
+      margin: 0;
+      font-size: .32rem;
+      line-height: 1.2;
+    }
+
+    ul {
+      list-style: none;
+      margin: 20px 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    li {
+      padding-top: 100%;
+      position: relative;
+    }
+
+    li a {
+      position: absolute;
+      z-index: 9;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    li:nth-child(1) a:focus,
+    li:nth-child(1) a:hover {
+      background-color: rgb(7 193 96/.2);
+    }
+    li:nth-child(2) a:focus,
+    li:nth-child(2) a:hover {
+      background-color: rgb(22 119 225/.2);
+    }
+    li:nth-child(3) a:focus,
+    li:nth-child(3) a:hover {
+      background-color: rgb(37 59 128/.2);
+    }
+    li:nth-child(4) a:focus,
+    li:nth-child(4) a:hover {
+      background-color: rgb(49 0 135/.2);
+    }
+
+    li svg {width: 30%;position: absolute;}
+    li:nth-child(2) svg {width: 28%;}
+    li:nth-child(4) svg {width: 32%;}
+
+    li:nth-child(1) a:hover path  {
+      fill: #07C160;
+    }
+    li:nth-child(2) a:hover path:nth-child(1) {
+      fill: #1677FF;
+    }
+    li:nth-child(3) a:hover path:nth-child(1) {
+      fill: #0070E0;
+    }
+    li:nth-child(3) a:hover path:nth-child(2) {
+      fill: #003087;
+    }
+    li:nth-child(4) a:hover g {
+      fill: #310087;
+    }
+
+    li img {
+      width: 100%;
+      visibility: hidden;
+      z-index: 8;
+    }
+    li > img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      visibility: visible;
+    }
+
+    a:focus,
+    a.selected {
+      background-color: rgb(255 255 255 /.4)!important;
+      box-shadow: inset 0 0 1px rgb(0 0 0 /.2);
+    }
+
+    a:focus svg,
+    a.selected svg {
+      visibility: hidden;
+    }
+    li:nth-child(3) a:focus svg {
+      visibility: visible;
+    }
+
+    a:focus img,
+    a.selected img {
+      visibility: visible;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: auto 0 5vh;
+      color: #878b99;
+    }
+    footer::before {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 100px;
+      background-image: url(assets/images/dissapoint.webp);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    footer span::before {
+      content: '''';
+    }
+
+    @media screen and (orientation: portrait) and (max-width: 750px) {
+      article h2 {
+        font-size: 1rem;
+        margin-right: 0.3rem;
+      }
+      article span,
+      article p {
+        display: none;
+      }
+    }
+    @media screen and (orientation: portrait) and (max-width: 560px) {
+      ul {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media screen and (max-width: 800px) {
+      main {
+        width: auto;
+        margin: 0 20px;
+      }
+    }
+    @media screen and (min-width: 750px) {
+      html { font-size: 100px;}
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #191919;
+      }
+      h1 path:nth-child(1) {
+        fill: #fff;
+      }
+      article {color: #fff;}
+      section, li a {
+        background-color: rgb(255 255 255/.05);
+        box-shadow: inset 0 0 1px rgb(255 255 255 / 30%), 0 0 1px rgb(0 0 0 / 30%);
+      }
+      li a:focus {
+        background-color: rgb(255 255 255/.2)!important;
+      }
+      li a:hover {
+        box-shadow: none;
+      }
+      li:nth-child(4) g {
+        fill: #999;
+      }
+      li:nth-child(4) a:hover g {
+        fill: #ae7eff;
+      }
+      footer {
+        color: rgb(255 255 255/.2);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>
+      <svg viewBox="0 0 200 50">
+        <path fill="#000" d="M33.21 46.506V18.333h7.857v28.173H33.21Zm18.782-28.173 7.242 18.598 7.956-18.598h7.757L63.073 46.506h-7.717L43.522 18.333h8.47Zm40.967-4.266c.153.74.254 1.48.254 2.246 0 4.084-2.342 7.58-5.702 9.265l.331 2.705L89.7 46.506H76.03l1.859-18.223.006-.109c.008-.075.019-.155.019-.223a10.323 10.323 0 0 0-5.168 6.866c-.152-.74-.254-1.48-.254-2.246 0-5.692 4.582-10.311 10.259-10.362h.127c4.939 0 9.063-3.497 10.08-8.142Zm-10.106.671c1.78 0 3.23 1.456 3.23 3.244a3.242 3.242 0 0 1-3.23 3.244c-1.806 0-3.256-1.456-3.23-3.244a3.242 3.242 0 0 1 3.23-3.244Zm12.716 31.768V18.333h6.49L114.36 33.4V18.333h7.723v28.173h-6.49l-12.301-14.802v14.802h-7.724Zm46.342-28.667c2.607 0 4.938.44 6.993 1.322 2.054.881 3.753 2.15 5.096 3.805l-4.978 4.567c-.948-1.042-1.969-1.823-3.062-2.344-1.093-.52-2.31-.78-3.654-.78-1.185 0-2.265.186-3.24.56a6.8 6.8 0 0 0-2.489 1.622 7.536 7.536 0 0 0-1.6 2.524c-.381.975-.572 2.076-.572 3.305 0 1.175.19 2.256.572 3.244a7.493 7.493 0 0 0 1.6 2.544 7.057 7.057 0 0 0 2.47 1.642c.961.387 2.021.58 3.18.58 1.159 0 2.291-.193 3.398-.58.275-.097.552-.21.83-.34v-7.691h6.913v11.616c-1.58 1.148-3.41 2.03-5.492 2.644-2.08.614-4.121.921-6.123.921-2.186 0-4.214-.354-6.084-1.061-1.87-.708-3.483-1.716-4.84-3.025a14.092 14.092 0 0 1-3.18-4.626c-.764-1.776-1.146-3.732-1.146-5.868 0-2.137.382-4.093 1.146-5.869a13.949 13.949 0 0 1 3.2-4.626c1.37-1.309 2.996-2.317 4.88-3.024 1.882-.708 3.943-1.062 6.182-1.062Zm-124.503 0c2.607 0 4.938.44 6.992 1.322 2.055.881 3.754 2.15 5.097 3.805l-4.978 4.567c-.948-1.042-1.969-1.823-3.062-2.344-1.093-.52-2.311-.78-3.654-.78-1.185 0-2.265.186-3.24.56a6.8 6.8 0 0 0-2.489 1.622 7.536 7.536 0 0 0-1.6 2.524c-.382.975-.573 2.076-.573 3.305 0 1.175.191 2.256.573 3.244a7.493 7.493 0 0 0 1.6 2.544 7.057 7.057 0 0 0 2.47 1.642c.96.387 2.02.58 3.18.58 1.159 0 2.291-.193 3.397-.58.276-.097.553-.21.83-.34v-7.691h6.914v11.616c-1.58 1.148-3.411 2.03-5.492 2.644-2.08.614-4.122.921-6.123.921-2.186 0-4.214-.354-6.084-1.061-1.87-.708-3.484-1.716-4.84-3.025a14.092 14.092 0 0 1-3.18-4.626C2.382 36.512 2 34.556 2 32.42c0-2.137.382-4.093 1.146-5.869a13.949 13.949 0 0 1 3.2-4.626c1.37-1.309 2.996-2.317 4.879-3.024 1.883-.708 3.944-1.062 6.183-1.062ZM159.316 46.517h16.88V35.605h-6.771v-2.548h7.766v-2.861h-7.766V27.68h3.049v-2.894h-9.307v2.894h2.92v2.516h-7.766v2.861h7.766v2.548h-6.771v10.912Zm-.385-20.976L158 28.434h3.306l2.021-6.54h8.858l2.022 6.54h3.305l-.93-2.893L174.528 19h-13.543l-2.054 6.541Zm13.96 18.083h-10.27v-5.095h10.27v5.095Zm8.524-13.977V41.02L198 47v-3.674l-13.262-4.708v-6.085h12.589v-13.05h-15.912v2.886h12.62v7.278h-12.62ZM10.922 14c-.77 0-1.509-.104-2.215-.31C8 13.481 7.43 13.212 7 12.88l.757-1.685c.413.295.901.537 1.466.725a5.369 5.369 0 0 0 1.713.283c.44 0 .796-.043 1.067-.13.27-.088.47-.21.598-.367a.825.825 0 0 0 .193-.538.73.73 0 0 0-.303-.615 2.482 2.482 0 0 0-.798-.373c-.33-.097-.695-.189-1.094-.276-.4-.088-.798-.196-1.197-.325a5.056 5.056 0 0 1-1.095-.497 2.44 2.44 0 0 1-.805-.801c-.206-.332-.31-.755-.31-1.271 0-.552.15-1.057.448-1.512.298-.456.748-.82 1.349-1.092.6-.271 1.355-.407 2.264-.407.605 0 1.202.071 1.789.214a5.146 5.146 0 0 1 1.555.642l-.688 1.7c-.45-.259-.9-.45-1.349-.574a4.945 4.945 0 0 0-1.321-.186c-.431 0-.785.05-1.06.152-.275.1-.472.232-.592.393a.915.915 0 0 0-.179.56c0 .248.101.448.303.6.202.152.468.274.798.366.33.092.696.185 1.095.277.399.092.798.198 1.197.317.4.12.764.281 1.094.484.33.202.599.47.805.8.207.332.31.751.31 1.258a2.62 2.62 0 0 1-.454 1.491c-.303.452-.755.815-1.356 1.092-.6.276-1.36.414-2.278.414Zm19.56-5.94h4.638v1.741h-4.638v-1.74Zm.165 3.979h5.244v1.795h-7.46V4.166h7.28V5.96h-5.064v6.078Zm18.428 1.795V4.166h2.23v7.845h4.83v1.823h-7.06Zm22.709-5.317h4.624v1.795h-4.624V8.517Zm.165 5.317h-2.23V4.166H77V5.96h-5.05v7.873Z"/>
+        <path fill="#F46B9D" d="M98.253 4.974c-.53-.58-1.16-.859-1.892-.859-.707 0-1.489.38-2.296 1.137l-1.161 1.062-.908-1.011c-.732-.784-1.439-1.213-2.17-1.289-.707-.076-1.388.152-1.994.733-.58.53-.857 1.162-.857 1.895 0 .708.378 1.49 1.135 2.3l4.794 4.901 4.794-4.674c.782-.733 1.211-1.44 1.287-2.173.1-.733-.152-1.415-.732-2.022"/>
+      </svg>
+      <span>SELF.GIVING<sup>舍己</sup></span>
+    </h1>
+    <section>
+      <article>
+        <h2>感谢<span>您，</span></h2>
+        <p>公益事业的支持者；<br>慈善行为的实践者；<br>社会责任的担当者。</p>
+      </article>
+    </section>
+    <ul>
+      <li>
+        <a title="WeChat Pay" href="javascript:;">
+          <img src="./assets/images/qr-wechat.png" alt="WeChat Pay">
+          <svg viewBox="0 0 64 64">
+            <path d="M23.686 39.118a2.07 2.07 0 0 1-.935.225c-.78 0-1.459-.433-1.815-1.072l-.135-.3-5.679-12.569a1.044 1.044 0 0 1 .94-1.49c.235 0 .448.077.623.208l6.7 4.811a3.085 3.085 0 0 0 2.77.32l31.508-14.146C52.016 8.389 42.713 4 32.187 4 14.962 4 1 15.738 1 30.218c0 7.9 4.2 15.012 10.776 19.818a2.1 2.1 0 0 1 .872 1.71c0 .232-.047.444-.109.666l-1.405 5.29c-.065.247-.168.507-.168.766 0 .579.465 1.048 1.04 1.048.225 0 .41-.084.601-.194l6.828-3.978c.513-.298 1.057-.483 1.656-.483.32 0 .627.05.917.139a36.616 36.616 0 0 0 10.18 1.437c17.225 0 31.188-11.738 31.188-26.219 0-4.384-1.287-8.514-3.552-12.148l-35.91 20.914-.228.134Z"/>
+          </svg>
+          <span>Giving by WeChat Pay</span>
+        </a>
+      </li>
+      <li>
+        <a title="Alipay" href="javascript:;">
+          <img src="./assets/images/qr-alipay.png" alt="Alipay">
+          <svg viewBox="0 0 52 52">
+            <path fill="#000" d="M43.673 0H8.33A8.328 8.328 0 0 0 0 8.33v35.34C0 48.27 3.727 52 8.33 52h35.343A8.327 8.327 0 0 0 52 43.67V8.33A8.327 8.327 0 0 0 43.673 0"/>
+            <path fill="#FFF" d="M14.297 40.22c-8.037 0-10.414-6.343-6.442-9.812 1.326-1.173 3.749-1.746 5.04-1.874 4.774-.473 9.194 1.352 14.41 3.903-3.667 4.79-8.336 7.783-13.008 7.783m28.575-7.303c-2.066-.693-4.84-1.754-7.93-2.874 1.856-3.232 3.337-6.912 4.312-10.911H29.07v-3.675h12.474v-2.05H29.071V7.28h-5.092c-.894 0-.894.883-.894.883v5.243H10.47v2.051h12.616v3.675H12.67v2.05h20.203a36.141 36.141 0 0 1-2.91 7.125c-6.555-2.167-13.551-3.924-17.945-2.842-2.81.693-4.621 1.932-5.684 3.229C1.452 34.643 4.95 43.68 15.26 43.68c6.095 0 11.966-3.405 16.516-9.015C38.562 37.934 52 43.546 52 43.546v-7.998s-1.687-.135-9.128-2.63"/>
+          </svg>
+          <span>Giving by Alipay</span>
+        </a>
+      </li>
+      <li>
+        <a title="PayPal" href="https://paypal.me/selfgiving" target="_blank">
+          <svg viewBox="0 0 64 64">
+            <path fill="#606060" d="m23.005 37.003 3.11-19.695a2.33 2.33 0 0 1 2.304-1.973h14.618a30.389 30.389 0 0 1 4.824.352 19.4 19.4 0 0 1 2.392.531c.184.055.368.112.55.173a13.11 13.11 0 0 1 2.022.853 9.28 9.28 0 0 1 2.657 2.048c2.378 2.71 2.843 6.563 1.944 11.178-2.151 11.047-9.512 14.864-18.914 14.864H37.06a2.334 2.334 0 0 0-2.275 1.812l-.148.797-1.827 11.596-.096.493A2.335 2.335 0 0 1 30.408 62h-9.705a1.4 1.4 0 0 1-1.382-1.618l3.684-23.379Z"/>
+            <path fill="#2c2c2c" d="m22.916 37.578-2.802 17.767H8.6a1.603 1.603 0 0 1-1.58-1.853l7.768-49.24A2.665 2.665 0 0 1 17.422 2h18.65c6.424 0 11.445 1.356 14.226 4.523 2.523 2.877 3.261 6.055 2.53 10.721-.058.356-.12.72-.193 1.094-2.46 12.625-10.874 16.99-21.62 16.99h-5.473c-1.31-.001-2.426.955-2.626 2.25Z" style="mix-blend-mode:multiply"/>
+          </svg>
+          <span>Giving By Paypal</span>
+        </a>
+      </li>
+      <li>
+        <a title="ETH" href="javascript:;">
+          <img src="./assets/images/qr-token.png" alt="ETH Token">
+          <svg viewBox="0 0 64 64">
+            <g fill="#000" fill-rule="nonzero"><path d="M32.419 46.933V62l18.427-25.949z" opacity=".8"/><path d="M14 36.051 32.419 62V46.933z" opacity=".45"/><path d="M32.419 24.184 14 32.561l18.419 10.882 18.412-10.882z" opacity=".6"/><path d="M32.419 2v41.443l18.412-10.882z" opacity=".8"/><path d="m14 32.561 18.419 10.882V2z" opacity=".45"/></g>
+          </svg>
+          <span>Giving By ETH</span>
+        </a>
+      </li>
+    </ul>
+    <footer><span>落魄程序员在线求可怜</span></footer>
+  </main>
+</body>
+
+<script src="assets/scripts/zepto.js"></script>
+<script>
+  $(function(){
+    $('li').on('click',function(){
+      $('a',this).addClass('selected');
+      $(this).siblings().find('a').removeClass('selected')
+    })
+    if($.os.phone || $.os.tablet) {
+      $('li:nth-child(2) a').attr('href','https://qr.alipay.com/fkx15951yjlqga3iqjmrr6c')
+      if($.os.wechat) {
+        $('li:nth-child(1) img').attr('src','./assets/images/qr-wechat-in.png');
+      }
+    }
+  })
+</script>
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?15d8b1a53514a8a458e8d36c40ad1e14";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</html>
