@@ -1,3 +1,2 @@
-# cnm.ba
-This navigation site is full of love(cào).
-One single page, only HTML/CSS/JS.
+# SELF.GIVING
+A Donate Website for [熊宝](https://xio.ng/)
